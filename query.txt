@@ -18,7 +18,7 @@ WHERE l.post_id IS NULL;
 
 SELECT p.id AS numero_post, COUNT(l.post_id) AS numero_like
 FROM posts AS p
-LEFT JOIN likes AS l ON p.id = l.post_id
+RIGHT JOIN likes AS l ON p.id = l.post_id
 GROUP BY p.id
 ORDER BY p.id;
 
@@ -26,7 +26,7 @@ ORDER BY p.id;
 
 SELECT u.id, u.username, COUNT(m.id) AS media_count
 FROM users AS u
-LEFT JOIN medias AS m ON u.id = m.user_id
+RIGHT JOIN medias AS m ON u.id = m.user_id
 GROUP BY u.id, u.username
 ORDER BY media_count ASC;
 
